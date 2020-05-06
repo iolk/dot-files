@@ -4,6 +4,7 @@
 # Ignore all files named .DS_Store or ending with .log
 **/.DS_Store
 **.log
+**nohup.out
 
 # But not these files...
 !.gitignore
@@ -18,4 +19,4 @@
 !.config/i3
 !.config/rofi
 !.config/redshift
-
+!.config/iolk-scripts

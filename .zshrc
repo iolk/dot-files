@@ -26,6 +26,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Flutter path
 export PATH="$PATH:/home/iolk/.local/share/flutter/bin:/home/iolk/Android/Sdk/platform-tools:/home/iolk/Android/Sdk/emulator:/home/iolk/Android/Sdk/build-tools:/home/iolk/.local/bin"
+export PATH="$PATH:/home/iolk/.local/share/android-studio/jre/bin"
 #export PATH="$PATH:/snap/bin/:/var/lib/snapd/desktop/applications"
 #export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/snapd/desktop"
 export MANPATH="/usr/local/man:$MANPATH"
@@ -51,6 +52,9 @@ alias kalidocker="sudo docker run -ti --rm --mount src=kali-root,dst=/root --mou
 alias opt_gpp="g++ -std=c++17 -Wall -pedantic -O3 main.cpp -o main"
 
 alias natan_hotspot='sudo nmcli d wifi connect "iPhone di Natan" bssid 56:DA:3F:51:11:16 password "nemesis3"'
+alias discord_loop='~/.config/iolk-scripts/discord.sh'
+
+alias bundletool='java -jar ~/.android/bundletool-all-0.15.0.jar'
 
 # SSH INIT
 eval "$(ssh-agent -s)"
@@ -58,3 +62,6 @@ ssh-add ~/.ssh/id_rsa
 
 export WECHALLUSER="iolk"
 export WECHALLTOKEN="70FE3-9AAA2-C4E62-66863-9709B-6456F"
+
+# For gnome-control-center
+export XDG_CURRENT_DESKTOP="GNOME"
