@@ -1,0 +1,267 @@
+#
+# Colors definition
+#
+set_from_resource $base03   i3wm.color8     #002b36
+set_from_resource $base02   i3wm.color0     #073642
+set_from_resource $base01   i3wm.color10    #586e75
+set_from_resource $base00   i3wm.color11    #657b83
+set_from_resource $base0    i3wm.color12    #839496
+set_from_resource $base1    i3wm.color14    #93a1a1
+set_from_resource $base2    i3wm.color7     #eee8d5
+set_from_resource $base3    i3wm.color15    #fdf6e3
+set_from_resource $yellow   i3wm.color3     #b58900
+set_from_resource $orange   i3wm.color9     #cb4b16
+set_from_resource $red      i3wm.color1     #dc322f
+set_from_resource $magenta  i3wm.color5     #d33682
+set_from_resource $violet   i3wm.color13    #6c71c4
+set_from_resource $blue     i3wm.color4     #268bd2
+set_from_resource $cyan     i3wm.color6     #2aa198
+set_from_resource $green    i3wm.color2     #859900
+set_from_resource $background i3wm.background #3b4252
+set_from_resource $foreground i3wm.foreground #eceff4
+set_from_resource $lighterbg  i3wm.lighterbg  #88c0d0
+set_from_resource $separator  i3wm.separator  $lighterbg
+set_from_resource $inactive  i3wm.inactive    #4c566a
+
+#####################################################
+
+#
+# Bindings
+#
+set $mod Mod4
+floating_modifier $mod
+
+bindsym $mod+Return exec --no-startup-id urxvt
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec rofi -show drun 
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+#bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+#####################################################
+
+#
+# Custom settings
+#
+#hide_edge_borders both
+#new_window pixel 1
+#new_float pixel 1
+focus_follows_mouse no
+font pango:DejaVu Sans Mono 10
+
+#####################################################
+
+#
+# Multimedia Keys
+#
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#####################################################
+
+#
+# Screenshots
+#
+bindsym Print exec maim -s | tee ~/Pictures/screenshot-$(date +%d-%m-%Y_%T.png) && notify-send Screenshot\ eseguito
+bindsym $mod+Shift+s exec maim -m 1 | tee ~/Pictures/screenshot-$(date +%d-%m-%Y_%T.png)
+
+#####################################################
+
+#
+# Bottombar
+#
+bar {
+    i3bar_command i3bar
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    position bottom
+    tray_output primary
+    font pango:DejaVu Sans Mono, Icons 9
+
+    binding_mode_indicator no
+    mode hide
+    modifier none
+
+    colors {
+	background	$background
+	statusline	$foreground
+	separator	$background
+		#Type               border      background	font
+		focused_workspace	$background $lighterbg  $foreground
+		active_workspace	$background $background $foreground
+		inactive_workspace	$background $inactive   $foreground
+		urgent_workspace	$background $background $foreground
+    }
+}
+bindsym $mod+m bar mode toggle
+
+#####################################################
+
+#
+# Startup apps
+#
+exec --no-startup-id nm-applet
+exec dbus-launch compton --config ~/.config/compton.conf &
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/current.png
+exec --no-startup-id xbattbar top -ca
+exec --no-startup-id redshift-gtk
+exec --no-startup-id dropbox start
+
+#####################################################
+
+#
+# Gaps stuff
+#
+# Necessary for i3-gaps to work properly
+for_window [class="^.*"] border pixel 3
+
+smart_gaps on
+smart_borders on
+
+client.focused_inactive #000000 #000000 #000000 #000000 #000000
+client.unfocused        #000000 #000000 #000000 #000000 #000000
+
+# Set inner/outer gaps
+gaps inner 12
+gaps outer 0
+
+# Gaps mode
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#####################################################
+
+#
+# Reload, Restart, Exit
+#
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Spegnere il computer?' -b 'Si' 'shutdown 0'"
+
+#####################################################
+
+#
+# Resize
+#
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 1 px or 1 ppt
+    bindsym Down resize grow height 1 px or 1 ppt
+    bindsym Up resize shrink height 1 px or 1 ppt
+    bindsym Right resize grow width 1 px or 1 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#####################################################
+
+#
+# Colors
+#
+#class                      border         backgr	  text	   indicator
+client.focused		        #2C313D        #2e3440        $background  $background
+client.focused_inactive	    #2C313D        #303743        $background  $background
+client.unfocused	        #2C313D        #303743        $background  $background
+client.urgent		        $background    #282d37    $background  $background
+client.placeholder	        $background    #282D37    $background  $background
+
+#####################################################
+
+#
+# Containers
+#
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+#####################################################

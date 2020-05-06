@@ -1,0 +1,21 @@
+# Ignore everything
+/*
+
+# Ignore all files named .DS_Store or ending with .log
+**/.DS_Store
+**.log
+
+# But not these files...
+!.gitignore
+!README.md
+!.Xresources
+!.xinitrc
+!.zshrc
+
+!.screenlayout
+!.config
+.config/*
+!.config/i3
+!.config/rofi
+!.config/redshift
+
