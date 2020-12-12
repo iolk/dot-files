@@ -1,0 +1,14 @@
+configuration {
+	modi: "drun,run,window,ssh";
+	lines: 7;
+	font: "sans-serif 10";
+	bw: 0;
+	padding: 0;
+	show-icons: false;
+	matching: "fuzzy";
+	line-margin: 0;
+	line-padding: 10;
+	separator-style: "none";
+	hide-scrollbar: true;
+	theme: "/home/iolk/.config/rofi/themes/custom-nord.rasi";
+}
