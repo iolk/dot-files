@@ -21,6 +21,8 @@
 !.config/i3
 !.config/rofi
 !.config/dunst
+!.config/systemd
+.config/systemd/user/default.target.wants
 !.config/volumeicon
 !.config/backgrounds
 !.config/redshift
