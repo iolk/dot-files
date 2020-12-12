@@ -1,86 +1,20 @@
 !
-! Xft
+! In order to include correctly you have to pass -I$HOME to xrdb
+! REFERENCE: https://github.com/void-linux/void-packages/issues/20207
 !
-Xft*dpi:                96
-Xft*antialias:          true
-Xft*hinting:            full
 
 !
-! General appearance
+! NB: The #define and #include works only if you have a C preprocessor (gcc in archlinux)
+!     and only if you run the xrdb command without --no-cpp 
+! REFERENCE: https://unix.stackexchange.com/questions/296355/xterm-not-loading-xresources-properly#answer-304558
 !
-URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Bitstream Vera Sans Mono:size=10
-URxvt*lineSpace:                2
-URxvt.letterSpace:              0
-URxvt.iso14755:                 false
-URxvt.iso14755_52:              false
-URxvt*geometry:                 65x17
-URxvt*loginShell:               true
-URxvt.internalBorder:           20
 
 !
-! Copy paste
+! ARCH DEPENDACIES: gcc, compton, urxvt-perls
 !
-URxvt.perl-ext-common:          default,clipboard
-URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
-URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
-URxvt.clipboard.autocopy:       true
 
-!
-! Scrollbar
-!
-URxvt.scrollBar: false
-URxvt*scrollTtyOutput: false
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKeypress: true
-
-!
-! Trasparency
-!
-!URxvt*depth: 32
-!URxvt*background: rgba:0059/0066/0082/c800
-URxvt*transparent: true
-URxvt*shading: 30
-
-!
-! Colors
-!
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
-
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
-
-*.color0: nord1
-*.color1: nord11
-*.color2: nord14
-*.color3: nord13
-*.color4: nord9
-*.color5: nord15
-*.color6: nord8
-*.color7: nord5
-*.color8: nord3
-*.color9: nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+#include ".Xresources.d/appearance"
+#include ".Xresources.d/behaviours"
+#include ".Xresources.d/scrollbar"
+#include ".Xresources.d/transparency"
+#include ".Xresources.d/colors"

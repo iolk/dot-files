@@ -1,0 +1,11 @@
+! Do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! Scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! Scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! Do not show the scrollbarr
+URxvt.scrollBar: false

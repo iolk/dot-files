@@ -131,16 +131,17 @@ bindsym $mod+m bar mode toggle
 #
 # Startup apps
 #
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec dbus-launch compton --config ~/.config/compton.conf &
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/current.png
-exec --no-startup-id xbattbar top -ca
-exec --no-startup-id redshift-gtk
-exec --no-startup-id dropbox start
+exec --no-startup-id feh --bg-fill ~/.config/backgrounds/current.png
+exec --no-startup-id cbatticon 
+exec --no-startup-id redshift -l geoclue2
+exec --no-startup-id volumeicon
+#exec --no-startup-id dropbox start
 
 # Important for discord
-exec --no-startup-id /usr/lib/notification-daemon/notification-daemon
+#exec --no-startup-id /usr/lib/notification-daemon/notification-daemon
 
 #####################################################
 

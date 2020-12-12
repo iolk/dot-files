@@ -12,11 +12,16 @@
 !.Xresources
 !.xinitrc
 !.zshrc
+!.Xresources.d
 
 !.screenlayout
+.screenlayout/nohup.out
 !.config
 .config/*
 !.config/i3
 !.config/rofi
+!.config/dunst
+!.config/volumeicon
+!.config/backgrounds
 !.config/redshift
 !.config/iolk-scripts

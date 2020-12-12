@@ -1,0 +1,20 @@
+!
+! Xft
+!
+Xft*dpi:                96
+Xft*antialias:          true
+Xft*hinting:            full
+
+!
+! Rxvt-unicode appearance
+!
+URxvt*termName:                 rxvt-256color
+URxvt*font:                     xft:Bitstream Vera Sans Mono:size=10
+URxvt*lineSpace:                2
+URxvt.letterSpace:              0
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 65x17
+URxvt*loginShell:               true
+URxvt.internalBorder:           20
+

@@ -1,0 +1,39 @@
+#define NORD_0 #2E3440
+#define NORD_1 #3B4252
+#define NORD_2 #434C5E
+#define NORD_3 #4C566A
+#define NORD_4 #D8DEE9
+#define NORD_5 #E5E9F0
+#define NORD_6 #ECEFF4
+#define NORD_7 #8FBCBB
+#define NORD_8 #88C0D0
+#define NORD_9 #81A1C1
+#define NORD_A #5E81AC
+#define NORD_B #BF616A
+#define NORD_C #D08770
+#define NORD_D #EBCB8B
+#define NORD_E #A3BE8C
+#define NORD_F #B48EAD
+
+*fading: 35
+*foreground:  NORD_4
+*background:  NORD_0
+*cursorColor: NORD_4
+*fadeColor:   NORD_3
+
+*color0:  NORD_1
+*color1:  NORD_B
+*color2:  NORD_E
+*color3:  NORD_D
+*color4:  NORD_9
+*color5:  NORD_F
+*color6:  NORD_F
+*color7:  NORD_5
+*color8:  NORD_3
+*color9:  NORD_B
+*color10: NORD_E
+*color11: NORD_D
+*color12: NORD_9
+*color13: NORD_F
+*color14: NORD_7
+*color15: NORD_6

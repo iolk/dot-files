@@ -1,0 +1,21 @@
+!
+! Perl extension import
+!
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+
+!
+! Copy & Paste behaviour
+!
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.clipboard.autocopy:       true
+
+!
+! URL Lanching
+!
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
