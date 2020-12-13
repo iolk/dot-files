@@ -12,6 +12,7 @@
 !.Xresources
 !.xinitrc
 !.zshrc
+!.pkg-list
 !.Xresources.d
 
 !.screenlayout
@@ -24,6 +25,7 @@
 !.config/systemd
 .config/systemd/user/default.target.wants
 !.config/volumeicon
+!.config/picom
 !.config/backgrounds
 !.config/redshift
 !.config/iolk-scripts

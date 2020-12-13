@@ -71,9 +71,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 #
 # Custom settings
 #
-#hide_edge_borders both
-#new_window pixel 1
-#new_float pixel 1
 focus_follows_mouse no
 font pango:DejaVu Sans Mono 10
 
@@ -82,12 +79,12 @@ font pango:DejaVu Sans Mono 10
 #
 # Multimedia Keys
 #
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volumemgr 5%+
+bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volumemgr 5%-
+bindsym XF86AudioMute exec ~/.config/i3/scripts/volumemgr toggle
+#bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 
 #####################################################
 
@@ -131,12 +128,14 @@ bindsym $mod+m bar mode toggle
 #
 # Startup apps
 #
-exec dbus-launch compton --config ~/.config/compton.conf &
+
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id feh --bg-fill ~/.config/backgrounds/current.png
 exec --no-startup-id cbatticon 
-exec --no-startup-id redshift -l geoclue2
+exec --no-startup-id blueman-applet
+exec --no-startup-id redshift
 exec --no-startup-id volumeicon
+exec --no-startup-id picom
 
 #####################################################
 
@@ -144,7 +143,7 @@ exec --no-startup-id volumeicon
 # Gaps stuff
 #
 # Necessary for i3-gaps to work properly
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0
 
 smart_gaps on
 smart_borders on
@@ -153,7 +152,7 @@ client.focused_inactive		#000000 #000000 #000000 #000000 #000000
 client.unfocused			#000000 #000000 #000000 #000000 #000000
 
 # Set inner/outer gaps
-gaps inner 12
+gaps inner 20
 gaps outer 0
 
 # Gaps mode
@@ -202,7 +201,7 @@ mode "$mode_gaps_outer" {
 #
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Spegnere il computer?' -b 'Si' 'shutdown 0'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Uscire da i3?' -b 'Si' 'pkill i3'"
 
 #####################################################
 

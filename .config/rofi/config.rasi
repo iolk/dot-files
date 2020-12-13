@@ -1,14 +1,27 @@
 configuration {
 	modi: "drun,run,window,ssh";
-	lines: 7;
-	font: "sans-serif 10";
+	lines: 5;
+	font: "sans-serif 12";
 	bw: 0;
 	padding: 0;
-	show-icons: false;
+	border-radius: 10;
+	icon-theme: "Papirus";
+	drun-match-fields: "name";
+	drun-display-format: "{name}";
+	show-icons: true;
 	matching: "fuzzy";
 	line-margin: 0;
 	line-padding: 10;
 	separator-style: "none";
 	hide-scrollbar: true;
 	theme: "/home/iolk/.config/rofi/themes/custom-nord.rasi";
+}
+
+element-icon { 
+	size: 32;
+}
+
+element-text { 
+	vertical-align: 0.5; 
+	horizontal-align: 0.05; 
 }
