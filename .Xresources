@@ -13,8 +13,8 @@
 ! ARCH DEPENDACIES: gcc, compton, urxvt-perls
 !
 
+#include ".Xresources.d/transparency"
 #include ".Xresources.d/appearance"
 #include ".Xresources.d/behaviours"
 #include ".Xresources.d/scrollbar"
-#include ".Xresources.d/transparency"
 #include ".Xresources.d/colors"

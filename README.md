@@ -211,6 +211,26 @@ That allows you to mount you remote directory as soon as the internet connection
 nano ~/.config/redshift/redshift.conf
 ```
 
+### Power management
+
+[TLP](https://wiki.archlinux.org/index.php/TLP) & [acpid](https://wiki.archlinux.org/index.php/Acpid)
+
+```bash
+systemctl enable tlp
+systemctl enable acpid
+```
+
+### Fonts
+
+Enable font presets by creating symbolic links:
+
+```bash
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+```
+The above will disable embedded bitmap for all fonts, enable sub-pixel RGB rendering, and enable the LCD filter which is designed to reduce colour fringing when subpixel rendering is used.
+
 # Todos
 
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)

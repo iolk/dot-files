@@ -20,9 +20,13 @@
 !.config
 .config/*
 !.config/i3
+!.config/iwd
 !.config/rofi
 !.config/ghostwriter
 !.config/dunst
+!.config/nano
+!.config/neofetch
+!.config/fontconfig
 !.config/systemd
 .config/systemd/user/default.target.wants
 !.config/volumeicon

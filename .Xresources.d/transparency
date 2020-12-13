@@ -1,4 +1,4 @@
+URxvt*transparent: true
 URxvt*depth: 32
 URxvt*background: rgba:0046/0052/0064/0255
-URxvt*transparent: true
-URxvt*shading: 25
+URxvt*shading: 35

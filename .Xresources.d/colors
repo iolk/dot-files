@@ -1,39 +1,57 @@
-#define NORD_0 #2E3440
-#define NORD_1 #3B4252
-#define NORD_2 #434C5E
-#define NORD_3 #4C566A
-#define NORD_4 #D8DEE9
-#define NORD_5 #E5E9F0
-#define NORD_6 #ECEFF4
-#define NORD_7 #8FBCBB
-#define NORD_8 #88C0D0
-#define NORD_9 #81A1C1
-#define NORD_A #5E81AC
-#define NORD_B #BF616A
-#define NORD_C #D08770
-#define NORD_D #EBCB8B
-#define NORD_E #A3BE8C
-#define NORD_F #B48EAD
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
 
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord1
+*.cursorColor2: nord4
+*.highlightColor: nord11
+*.highlighTextColor: nord15
 *fading: 35
-*foreground:  NORD_4
-*background:  NORD_0
-*cursorColor: NORD_4
-*fadeColor:   NORD_3
+*fadeColor: nord3
 
-*color0:  NORD_1
-*color1:  NORD_B
-*color2:  NORD_E
-*color3:  NORD_D
-*color4:  NORD_9
-*color5:  NORD_F
-*color6:  NORD_F
-*color7:  NORD_5
-*color8:  NORD_3
-*color9:  NORD_B
-*color10: NORD_E
-*color11: NORD_D
-*color12: NORD_9
-*color13: NORD_F
-*color14: NORD_7
-*color15: NORD_6
+! black
+*.color0: nord1
+*.color8: nord3
+
+! red
+*.color1: nord11
+*.color9: nord11
+
+! green
+*.color2: nord14
+*.color10: nord14
+
+! yellow
+*.color3: nord13
+*.color11: nord13
+
+! blue
+*.color4: nord9
+*.color12: nord9
+
+! magenta
+*.color5: nord15
+*.color13: nord15
+
+! cyan
+*.color6: nord8
+*.color14: nord7
+
+! white
+*.color7: nord5
+*.color15: nord6
