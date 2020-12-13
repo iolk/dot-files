@@ -21,6 +21,7 @@
 .config/*
 !.config/i3
 !.config/rofi
+!.config/ghostwriter
 !.config/dunst
 !.config/systemd
 .config/systemd/user/default.target.wants

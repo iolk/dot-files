@@ -91,8 +91,8 @@ bindsym XF86AudioMute exec ~/.config/i3/scripts/volumemgr toggle
 #
 # Screenshots
 #
-bindsym Print exec maim -s | tee ~/Pictures/Screenshots/screenshot-$(date +%d-%m-%Y_%T.png) && notify-send Screenshot\ eseguito
-bindsym $mod+Shift+s exec maim -m 1 | tee ~/Pictures/Screenshots/screenshot-$(date +%d-%m-%Y_%T.png)
+bindsym Print exec ~/.config/i3/scripts/screenshotmgr fullscreen
+bindsym $mod+Shift+s exec ~/.config/i3/scripts/screenshotmgr selection
 
 #####################################################
 

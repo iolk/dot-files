@@ -14,7 +14,7 @@ configuration {
 	line-padding: 10;
 	separator-style: "none";
 	hide-scrollbar: true;
-	theme: "/home/iolk/.config/rofi/themes/custom-nord.rasi";
+	theme: "~/.config/rofi/themes/custom-nord.rasi";
 }
 
 element-icon { 

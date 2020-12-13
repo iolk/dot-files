@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Arbitrary but unique message id
+msgId="991113"
+
+screenshot=""
+act_time=$(date +%d-%m-%Y_%T)
+
+if [[ "$1" == "fullscreen" ]]; then
+    maim -m 6 | tee ~/Pictures/Screenshots/screenshot-$act_time.png
+else
+    maim -s -u | tee ~/Pictures/Screenshots/screenshot-$act_time.png
+fi
+
+cat ~/Pictures/Screenshots/screenshot-$act_time.png | xclip -sel clipboard -target image/png -i
+
+dunstify -a "screenshotmgr" -u low -I ~/Pictures/Screenshots/screenshot-$act_time.png -r "$msgId" "Screenshot eseguito" "Lo screenshot e' stato salvato anche nella clipboard"
+
+
+
+
