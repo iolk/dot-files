@@ -140,6 +140,17 @@ systemctl start iwd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
 
+Edit `/etc/iwd/main.conf` with:
+
+```bash
+[General]
+AddressRandomization=once
+AddressRandomizationRange=nic
+EnableNetworkConfiguration=true
+[Network]
+NameResolvingService=systemd
+```
+
 Then run `iwctl` and connect to a wireless network
 
 ```bash
@@ -250,13 +261,14 @@ In the `~/.config/gtk-3.0/settings.ini` you can change the `gtk-application-pref
 
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
  - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
- - [ ] Security
+ - [ ] [Security](https://wiki.archlinux.org/index.php/Security)
  - [ ] [USB automount](https://wiki.archlinux.org/index.php/Fstab#External_devices)
- - [ ] Full HW Virtualizzation (qemu)
+ - [ ] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM) & [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
  - [ ] Docker & K8s
  - [ ] Maintenance (script/guide)
  - [ ] Music Player
  - [ ] Encription
  - [ ] Customize all notifications
  - [x] List of application
+ - [x] GTK, Icon and cursor theme
  - [x] My ArchLinux install guide

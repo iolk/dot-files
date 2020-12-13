@@ -15,6 +15,7 @@
 !.pkg-list
 !.Xresources.d
 !.icons
+!.gtkrc-2.0
 
 !.screenlayout
 .screenlayout/nohup.out
