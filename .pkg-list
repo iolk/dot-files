@@ -58,7 +58,7 @@ alsa-firmware
 openssh
 discord
 telegram-desktop
-keepass
+keepassxc
 volumeicon
 maim
 arandr
@@ -79,3 +79,4 @@ ttf-bitstream-vera
 ttf-croscore
 ttf-dejavu
 lxappearance-gtk3
+adapta-gtk-theme

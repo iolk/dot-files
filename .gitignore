@@ -23,6 +23,7 @@
 !.config/i3
 !.config/iwd
 !.config/rofi
+!.config/keepassrc
 !.config/ghostwriter
 !.config/dunst
 !.config/nano

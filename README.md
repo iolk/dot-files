@@ -231,6 +231,21 @@ sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
 ```
 The above will disable embedded bitmap for all fonts, enable sub-pixel RGB rendering, and enable the LCD filter which is designed to reduce colour fringing when subpixel rendering is used.
 
+### GTK, Icon and Cursor themes 
+
+If you want to change your gtk/icon/cursor theme just install it and run `lxappearance` to set it
+
+To install the cursor theme put the theme files in `~/.icons` in this case you can see the Vimix-cursors folder
+
+Themes used in this configuration:
+ - GTK: [Adapta](https://github.com/adapta-project/adapta-gtk-theme)
+ - Icon: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
+ - Cursor: [Vimix](https://github.com/vinceliuice/Vimix-cursors)
+
+#### Dark theme preference
+
+In the `~/.config/gtk-3.0/settings.ini` you can change the `gtk-application-prefer-dark-theme` option
+
 # Todos
 
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
