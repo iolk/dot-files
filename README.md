@@ -249,7 +249,7 @@ If you want to change your gtk/icon/cursor theme just install it and run `lxappe
 To install the cursor theme put the theme files in `~/.icons` in this case you can see the Vimix-cursors folder
 
 Themes used in this configuration:
- - GTK: [Adapta](https://github.com/adapta-project/adapta-gtk-theme)
+ - GTK: [Arc Dark](https://github.com/jnsh/arc-theme)
  - Icon: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
  - Cursor: [Vimix](https://github.com/vinceliuice/Vimix-cursors)
 
