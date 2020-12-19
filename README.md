@@ -307,19 +307,28 @@ d rm $(d ps -aq)
 d kill $(d ps -aq)
 d rmi $(d images --filter "dangling=true" -q --no-trunc)
 
+## MPD
+
+```bash
+sudo systemctl start mpd
+sudo systemctl enable mpd
+gpasswd -a mpd user_group
+chmod 710 /home/user_directory
+```
+
 # Todos
 
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
  - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
  - [ ] [Security](https://wiki.archlinux.org/index.php/Security)
- - [ ] Music Player
  - [ ] Wiki Pages
  - [ ] Encription
  - [ ] Customize all notifications
  - [ ] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+ - [X] Music Player
  - [X] Maintenance (script/guide)
  - [X] Docker
- - [x] [USB automount](https://github.com/coldfix/udiskie)
+ - [X] [USB automount](https://github.com/coldfix/udiskie)
  - [X] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM)
  - [x] List of application
  - [x] GTK, Icon and cursor theme

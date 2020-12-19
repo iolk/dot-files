@@ -26,6 +26,8 @@
 !.config/rofi
 !.config/keepassrc
 !.config/docker
+!.config/mpd
+!.config/ncmpcpp
 !.config/ghostwriter
 !.config/dunst
 !.config/nano

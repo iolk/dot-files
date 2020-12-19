@@ -32,6 +32,7 @@ set $mod Mod4
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Shift+m exec --no-startup-id urxvt -e 'ncmpcpp'
 
 bindsym $mod+Shift+q kill
 
