@@ -249,7 +249,7 @@ If you want to change your gtk/icon/cursor theme just install it and run `lxappe
 To install the cursor theme put the theme files in `~/.icons` in this case you can see the Vimix-cursors folder
 
 Themes used in this configuration:
- - GTK: [Arc Dark](https://github.com/jnsh/arc-theme)
+ - GTK: [Nordic Darker](https://github.com/EliverLara/Nordic)
  - Icon: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
  - Cursor: [Vimix](https://github.com/vinceliuice/Vimix-cursors)
 
@@ -312,13 +312,13 @@ d rmi $(d images --filter "dangling=true" -q --no-trunc)
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
  - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
  - [ ] [Security](https://wiki.archlinux.org/index.php/Security)
- - [ ] Docker & K8s
- - [ ] Maintenance (script/guide)
  - [ ] Music Player
  - [ ] Wiki Pages
  - [ ] Encription
  - [ ] Customize all notifications
  - [ ] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+ - [X] Maintenance (script/guide)
+ - [X] Docker
  - [x] [USB automount](https://github.com/coldfix/udiskie)
  - [X] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM)
  - [x] List of application
