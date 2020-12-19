@@ -52,9 +52,9 @@ bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
@@ -136,6 +136,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id redshift
 exec --no-startup-id volumeicon
 exec --no-startup-id picom
+exec --no-startup-id udiskie --tray
 
 #####################################################
 

@@ -20,7 +20,9 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git)
+plugins=(git gitignore docker chucknorris extract zsh-interactive-cd zsh_reload)
+
+zstyle ':completion:*:*:docker:*' option-stacking yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,3 +46,16 @@ ssh-add ~/.ssh/id_rsa
 export WECHALLUSER="iolk"
 export WECHALLTOKEN="70FE3-9AAA2-C4E62-66863-9709B-6456F"
 
+# system aliases
+alias pc="sudo pacman"
+alias sc="sudo systemctl"
+alias iwc="iwctl station wlan0"
+
+# kubectl aliases
+alias k="sudo kubectl"
+alias kgx="sudo kubectl config get-contexts"
+
+# docker aliases
+alias d="sudo docker"
+alias dc="sudo docker-compose"
+alias dockerd="~/.scripts/dockermgr"

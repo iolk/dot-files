@@ -16,11 +16,11 @@ I choose to use UEFI with GPT partition table.
 
 This is my partition scheme
 
-| Mount point | Partition type       | Size         |
-|-------------|----------------------|--------------|
-| /mnt/boot   | EFI system partition | 512M         |
-| [SWAP]      | Linux swap           | 6G (6GB RAM) |
-| /mnt        | Linux x86-64 root (/)       | Remainder    |	
+| Mount point | Partition type        | Size         |
+| ----------- | --------------------- | ------------ |
+| /mnt/boot   | EFI system partition  | 512M         |
+| [SWAP]      | Linux swap            | 6G (6GB RAM) |
+| /mnt        | Linux x86-64 root (/) | Remainder    |
 
 From now i suppose that the disk to partitionate is `/dev/sda` To make this partiotion scheme:
 
@@ -29,10 +29,10 @@ From now i suppose that the disk to partitionate is `/dev/sda` To make this part
 - Make the partitions with `gdisk`
  
  | Partition type        | gdisk code |
-|-----------------------|------------|
-| EFI system partition  | ef00       |
-| Linux swap            | 8200       |
-| Linux x86-64 root (/) | 8304       |
+ | --------------------- | ---------- |
+ | EFI system partition  | ef00       |
+ | Linux swap            | 8200       |
+ | Linux x86-64 root (/) | 8304       |
 
 ## Format Partitions
 
@@ -198,7 +198,7 @@ git clone https://github.com/iolk/dot-files.git
 mv dot-files/* ./
 mv dot-files/.* ./
 rmdir dot-files
-cat .pkg-list | xargs sudo apt-get install
+pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort .pkg-list))
 ```
 
 > You can check and modify the packages in the .pkg-list if you want
@@ -257,18 +257,70 @@ Themes used in this configuration:
 
 In the `~/.config/gtk-3.0/settings.ini` you can change the `gtk-application-prefer-dark-theme` option
 
+## Kernel-based Virtualizzation
+
+To start [libvirt](https://wiki.archlinux.org/index.php/Libvirt)
+
+```bash
+~/.config/i3/scripts/libvirtd_start.sh
+```
+> For futher configurations: https://libvirt.org/auth.html https://jamielinux.com/docs/libvirt-networking-handbook/ https://www.redhat.com/archives/vfio-users/2015-November/msg00159.html
+
+If `virsh net-list --all` shows no networks make a file `default.xml`: ([ref.](https://blog.programster.org/kvm-missing-default-network))
+
+```xml
+<network>
+  <name>default</name>
+  <uuid>9a05da11-e96b-47f3-8253-a3a482e445f5</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr0' stp='on' delay='0'/>
+  <mac address='52:54:00:0a:cd:21'/>
+  <ip address='192.168.122.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.122.2' end='192.168.122.254'/>
+    </dhcp>
+  </ip>
+</network>
+```
+
+then
+
+```bash
+sudo virsh net-define --file default.xml
+sudo virsh net-start default
+sudo virsh net-autostart --network default
+```
+
+## Docker
+
+I set up some aliases in the `.zshrc` file so to start/stop the `docker.service` run `dockerd start/stop` and just to try if it works:
+
+```bash
+d login
+d run -it --rm alpine sh -c "echo hello world"
+```
+
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose   
+
+d rm $(d ps -aq)
+d kill $(d ps -aq)
+d rmi $(d images --filter "dangling=true" -q --no-trunc)
+
 # Todos
 
  - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
  - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
  - [ ] [Security](https://wiki.archlinux.org/index.php/Security)
- - [ ] [USB automount](https://wiki.archlinux.org/index.php/Fstab#External_devices)
- - [ ] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM) & [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
  - [ ] Docker & K8s
  - [ ] Maintenance (script/guide)
  - [ ] Music Player
+ - [ ] Wiki Pages
  - [ ] Encription
  - [ ] Customize all notifications
+ - [ ] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+ - [x] [USB automount](https://github.com/coldfix/udiskie)
+ - [X] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM)
  - [x] List of application
  - [x] GTK, Icon and cursor theme
  - [x] My ArchLinux install guide

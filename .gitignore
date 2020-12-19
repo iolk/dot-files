@@ -25,6 +25,7 @@
 !.config/iwd
 !.config/rofi
 !.config/keepassrc
+!.config/docker
 !.config/ghostwriter
 !.config/dunst
 !.config/nano
