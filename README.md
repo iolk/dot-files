@@ -295,23 +295,19 @@ sudo virsh net-autostart --network default
 
 ## Docker
 
-I set up some aliases in the `.zshrc` file so to start/stop the `docker.service` run `dockerd start/stop` and just to try if it works:
+I set up some aliases in the `.zshrc` file so to start/stop the `docker.service` run `dockerd start/stop`:
 
+Useful commands:
 ```bash
-d login
-d run -it --rm alpine sh -c "echo hello world"
-```
-
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose   
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-```
-
-```bash
-# Useful commands
 d rm $(d ps -aq)
 d kill $(d ps -aq)
 d rmi $(d images --filter "dangling=true" -q --no-trunc)
+```
+
+### Install docker-compose
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose   
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
 ## MPD
@@ -345,7 +341,6 @@ From the ArchLinux [Security page](https://wiki.archlinux.org/index.php/Security
  - [ ] Wiki Pages
  - [ ] Encription
  - [ ] Customize all notifications
- - [ ] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
  - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
  - [X] [Security](https://wiki.archlinux.org/index.php/Security) (needs improvements)
  - [X] Music Player
@@ -353,6 +348,7 @@ From the ArchLinux [Security page](https://wiki.archlinux.org/index.php/Security
  - [X] Docker
  - [X] [USB automount](https://github.com/coldfix/udiskie)
  - [X] [Kernel-based Virtualizzation](https://wiki.archlinux.org/index.php/KVM)
+ - [x] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU) (Easy but you require an additional video card)
  - [x] List of application
  - [x] GTK, Icon and cursor theme
  - [x] My ArchLinux install guide
