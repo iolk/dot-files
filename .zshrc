@@ -29,6 +29,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # export PATH="$PATH:ADD_HERE_YOUR_PATH"
+export PATH="$PATH:/home/iolk/Development/flutter/bin"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -46,6 +47,8 @@ ssh-add ~/.ssh/id_rsa
 export WECHALLUSER="iolk"
 export WECHALLTOKEN="70FE3-9AAA2-C4E62-66863-9709B-6456F"
 
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
 # system aliases
 alias pc="sudo pacman"
 alias sc="sudo systemctl"
@@ -56,6 +59,9 @@ alias k="sudo kubectl"
 alias kgx="sudo kubectl config get-contexts"
 
 # docker aliases
-alias d="sudo docker"
-alias dc="sudo docker-compose"
+alias d="docker"
+alias dc="docker-compose"
 alias dockerd="~/.scripts/dockermgr"
+
+#laravel aliases
+alias sail="./vendor/bin/sail"

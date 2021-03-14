@@ -248,6 +248,8 @@ If you want to change your gtk/icon/cursor theme just install it and run `lxappe
 
 To install the cursor theme put the theme files in `~/.icons` in this case you can see the Vimix-cursors folder
 
+To install the theme download it and extract in `/usr/share/themes/`
+
 Themes used in this configuration:
  - GTK: [Nordic Darker](https://github.com/EliverLara/Nordic)
  - Icon: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
@@ -300,31 +302,52 @@ d login
 d run -it --rm alpine sh -c "echo hello world"
 ```
 
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose   
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
 
+```bash
+# Useful commands
 d rm $(d ps -aq)
 d kill $(d ps -aq)
 d rmi $(d images --filter "dangling=true" -q --no-trunc)
+```
 
 ## MPD
 
 ```bash
 sudo systemctl start mpd
 sudo systemctl enable mpd
-gpasswd -a mpd user_group
-chmod 710 /home/user_directory
 ```
+
+## Security
+
+From the ArchLinux [Security page](https://wiki.archlinux.org/index.php/Security):
+
+ - [ ] Firewall
+ - [ ] VPN 
+ - [ ] AppArmor 
+ - [ ] Kernel lockdown mode
+ - [X] Microcode
+ - [X] Hardware vulnerabilities
+ - [X] Password manager
+ - [X] Do not use the root account for daily use
+ - [X] Enforce a delay after a failed login attempt
+ - [X] Lock out user after three failed login attempts
+ - [X] Limit amount of processes
+ - [X] Run Xorg rootless
+ - [X] Kernel hardening
+ - [X] DNSCrypt
 
 # Todos
 
- - [ ] [Remove GRUB](https://wiki.archlinux.org/index.php/EFISTUB#Using_UEFI_directly)
- - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
- - [ ] [Security](https://wiki.archlinux.org/index.php/Security)
  - [ ] Wiki Pages
  - [ ] Encription
  - [ ] Customize all notifications
  - [ ] [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+ - [ ] [Secure Boot](https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface/Secure_Boot)
+ - [X] [Security](https://wiki.archlinux.org/index.php/Security) (needs improvements)
  - [X] Music Player
  - [X] Maintenance (script/guide)
  - [X] Docker
@@ -333,3 +356,5 @@ chmod 710 /home/user_directory
  - [x] List of application
  - [x] GTK, Icon and cursor theme
  - [x] My ArchLinux install guide
+
+> Currently evaluating Sway + Wayland

@@ -111,3 +111,6 @@ xorg-xinit
 xorg-xrandr
 zsh
 zsh-completions
+cmake
+clang
+ninja
